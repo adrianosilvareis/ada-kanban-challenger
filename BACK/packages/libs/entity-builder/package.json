@@ -1,0 +1,15 @@
+{
+  "name": "@libs/entity-builder",
+  "version": "1.0.0",
+  "main": "dist/src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@libs/jest-config-lib": "1.0.0",
+    "@libs/tsconfig-lib": "1.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "lint": "eslint --ext .js,.ts src tests --fix"
+  }
+}
