@@ -1,5 +1,5 @@
 import {
-  JsonController, Res, Body, Put, Param,
+  JsonController, Res, Body, Put, Param, UseBefore,
 } from 'routing-controllers';
 import { Response } from 'express';
 import { inject, injectable } from 'inversify';
@@ -8,9 +8,11 @@ import StatusCodes from 'http-status-codes';
 
 import { UpdateCardCommand } from '@/cards/domain/use-cases/update-card-command';
 import { Card } from '@/cards/domain/entities/card';
+import { AuthenticationMiddleware } from '@/login/infrastructure/middlewares/authentication-middleware';
 
 @injectable()
 @JsonController()
+@UseBefore(AuthenticationMiddleware)
 export class UpdateCardController {
   constructor(
     @inject(UpdateCardCommand) private readonly updateCardCommand: Commands<Card>,

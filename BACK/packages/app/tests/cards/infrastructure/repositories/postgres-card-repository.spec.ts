@@ -1,10 +1,9 @@
 import { NotFoundError } from '@/http-status/not-found-error';
 import { PostgresCardRepositories } from '@/cards/infrastructure/repositories/postgres-card-repository';
+import { LIST_NAME } from '@/cards/domain/entities/card';
 
 import { prismaMock } from '#/config/client-database';
 import { CardBuilder } from '#/cards/builders/card-builder';
-
-import { LIST_NAME } from '../../../../src/cards/domain/entities/card';
 
 describe('List', () => {
   test('should return card list', async () => {

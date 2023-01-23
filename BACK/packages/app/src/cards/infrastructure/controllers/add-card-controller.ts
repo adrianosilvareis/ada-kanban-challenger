@@ -1,5 +1,5 @@
 import {
-  JsonController, Res, Post, Body,
+  JsonController, Res, Post, Body, UseBefore,
 } from 'routing-controllers';
 import { Response } from 'express';
 import { inject, injectable } from 'inversify';
@@ -7,9 +7,11 @@ import { Commands } from '@libs/commands-lib';
 import StatusCodes from 'http-status-codes';
 
 import { AddCardCommand, AddCardParams } from '@/cards/domain/use-cases/add-card-command';
+import { AuthenticationMiddleware } from '@/login/infrastructure/middlewares/authentication-middleware';
 
 @injectable()
 @JsonController()
+@UseBefore(AuthenticationMiddleware)
 export class AddCardController {
   constructor(
     @inject(AddCardCommand) private readonly command: Commands<AddCardParams>,

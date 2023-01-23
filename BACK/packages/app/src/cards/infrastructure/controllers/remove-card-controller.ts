@@ -1,5 +1,5 @@
 import {
-  JsonController, Res, Delete, Params,
+  JsonController, Res, Delete, Params, UseBefore,
 } from 'routing-controllers';
 import { Response } from 'express';
 import { inject, injectable } from 'inversify';
@@ -7,9 +7,11 @@ import { Commands } from '@libs/commands-lib';
 import StatusCodes from 'http-status-codes';
 
 import { RemoveCardCommand, RemoveCardParams } from '@/cards/domain/use-cases/remove-card-command';
+import { AuthenticationMiddleware } from '@/login/infrastructure/middlewares/authentication-middleware';
 
 @injectable()
 @JsonController()
+@UseBefore(AuthenticationMiddleware)
 export class RemoveCardController {
   constructor(
     @inject(RemoveCardCommand) private readonly removeCardCommand: Commands<RemoveCardParams>,
