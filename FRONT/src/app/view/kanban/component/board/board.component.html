@@ -1,0 +1,109 @@
+<mat-grid-list cols="4" rowHeight="95vh">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-grid-tile-header>Novo</mat-grid-tile-header>
+
+    <div class="content">
+
+      <app-card-new (save)="onAdded($event)"></app-card-new>
+
+    </div>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-grid-tile-header>ToDo</mat-grid-tile-header>
+
+    <div class="content">
+
+      <ng-container *ngFor="let item of cards$ | async | list:'TODO'">
+        <app-card
+          [id]="item.id"
+          [title]="item.titulo"
+          [content]="item.conteudo"
+          [list]="item.lista"
+          *ngIf="!item.isEdit"
+          (edit)="item.isEdit=true"
+          (forward)="onForward(item)"
+          (back)="onBack(item)"
+          (delete)="onDelete(item.id)"
+
+          >
+        </app-card>
+        <app-card-edit
+          [id]="item.id"
+          [title]="item.titulo"
+          [content]="item.conteudo"
+          [list]="item.lista"
+          *ngIf="item.isEdit"
+          (cancel)="item.isEdit = false"
+          (save)="onSave($event)">
+        </app-card-edit>
+      </ng-container>
+
+    </div>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-grid-tile-header>Doing</mat-grid-tile-header>
+
+    <div class="content">
+      <ng-container *ngFor="let item of cards$ | async | list:'DOING'">
+        <app-card
+          [id]="item.id"
+          [title]="item.titulo"
+          [content]="item.conteudo"
+          [list]="item.lista"
+          *ngIf="!item.isEdit"
+          (edit)="item.isEdit=true"
+          (forward)="onForward(item)"
+          (back)="onBack(item)"
+          (delete)="onDelete(item.id)"
+
+          >
+        </app-card>
+        <app-card-edit
+          [id]="item.id"
+          [title]="item.titulo"
+          [content]="item.conteudo"
+          [list]="item.lista"
+          *ngIf="item.isEdit"
+          (cancel)="item.isEdit = false"
+          (save)="onSave($event)">
+        </app-card-edit>
+      </ng-container>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-grid-tile-header>Done</mat-grid-tile-header>
+
+    <div class="content">
+      <ng-container *ngFor="let item of cards$ | async | list:'DONE'">
+        <app-card
+          [id]="item.id"
+          [title]="item.titulo"
+          [content]="item.conteudo"
+          [list]="item.lista"
+          *ngIf="!item.isEdit"
+          (edit)="item.isEdit=true"
+          (forward)="onForward(item)"
+          (back)="onBack(item)"
+          (delete)="onDelete(item.id)"
+          >
+        </app-card>
+        <app-card-edit
+          [id]="item.id"
+          [title]="item.titulo"
+          [content]="item.conteudo"
+          [list]="item.lista"
+          *ngIf="item.isEdit"
+          (cancel)="item.isEdit = false"
+          (save)="onSave($event)">
+        </app-card-edit>
+      </ng-container>
+    </div>
+
+  </mat-grid-tile>
+
+</mat-grid-list>

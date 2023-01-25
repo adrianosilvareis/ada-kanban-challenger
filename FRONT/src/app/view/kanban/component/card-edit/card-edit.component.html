@@ -1,0 +1,24 @@
+<mat-card class="card">
+  <form [formGroup]="form" class="min-width">
+    <mat-card-header class="header">
+      <mat-card-title style="flex: 1;">
+        <input matInput class="input-title" formControlName="titulo">
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content style="margin-top: 20px;">
+      <textarea matInput class="input-content" formControlName="conteudo"></textarea>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-button title="cancelar edição" (click)="onCancel()">
+        <mat-icon fontIcon="cancel"></mat-icon>
+      </button>
+      <div class="spacer"></div>
+      <button mat-button color="accent" title="salvar" (click)="onSave()">
+        <mat-icon fontIcon="done"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

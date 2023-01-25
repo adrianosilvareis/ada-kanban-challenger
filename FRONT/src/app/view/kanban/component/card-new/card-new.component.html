@@ -1,0 +1,20 @@
+<mat-card class="card">
+  <form [formGroup]="form" class="min-width">
+    <mat-card-header class="header">
+      <mat-card-title style="flex: 1;">
+        <input matInput class="input-title" formControlName="titulo" placeholder="titulo">
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content style="margin-top: 20px;">
+      <textarea matInput class="input-content" formControlName="conteudo" placeholder="conteúdo"></textarea>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-button color="primary" title="novo" (click)="onSave()">
+        <mat-icon fontIcon="added"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

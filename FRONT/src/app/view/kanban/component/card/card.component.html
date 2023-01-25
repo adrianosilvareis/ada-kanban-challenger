@@ -1,0 +1,29 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{ title }}</mat-card-title>
+    <div class="spacer"></div>
+    <button mat-button (click)="goEdit()">
+      <mat-icon fontIcon="edit"></mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content style="margin-top: 20px;">
+    <p>
+      {{ content }}
+    </p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button mat-button title="mover para coluna anterior" [disabled]="isTodo" (click)="onBack()">
+      <mat-icon fontIcon="chevron_left"></mat-icon>
+    </button>
+    <div class="spacer"></div>
+    <button mat-button (click)="onDelete()">
+      <mat-icon fontIcon="delete"></mat-icon>
+    </button>
+    <div class="spacer"></div>
+    <button mat-button title="mover para próxima coluna" [disabled]="isDone" (click)="onForward()">
+      <mat-icon fontIcon="chevron_right"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
