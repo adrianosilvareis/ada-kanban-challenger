@@ -7,6 +7,7 @@ import { Commands } from '@libs/commands-lib';
 import StatusCodes from 'http-status-codes';
 
 import { LoginParams, MakeLoginCommand } from '@/login/domain/use-cases/make-login-command';
+import { logger } from '@/config/logger';
 
 @injectable()
 @JsonController()
@@ -17,6 +18,7 @@ export class LoginController {
 
   private onSuccess(res: Response): (props: unknown) => void {
     return (props: unknown) => {
+      logger('Login - Logged');
       res.status(StatusCodes.OK).json(props);
     };
   }

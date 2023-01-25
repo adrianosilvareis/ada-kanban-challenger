@@ -8,6 +8,8 @@ import StatusCodes from 'http-status-codes';
 
 import { AddCardCommand, AddCardParams } from '@/cards/domain/use-cases/add-card-command';
 import { AuthenticationMiddleware } from '@/login/infrastructure/middlewares/authentication-middleware';
+import { logger } from '@/config/logger';
+import { Card } from '@/cards/domain/entities/card';
 
 @injectable()
 @JsonController()
@@ -19,6 +21,8 @@ export class AddCardController {
 
   private onSuccess(res: Response): (props: unknown) => void {
     return (props: unknown) => {
+      const card = props as Card;
+      logger(`Card ${card.id} - ${card.titulo} - Adicionar`);
       res.status(StatusCodes.OK).json(props);
     };
   }

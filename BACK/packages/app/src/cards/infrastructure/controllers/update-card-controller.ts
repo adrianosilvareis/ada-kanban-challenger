@@ -9,6 +9,7 @@ import StatusCodes from 'http-status-codes';
 import { UpdateCardCommand } from '@/cards/domain/use-cases/update-card-command';
 import { Card } from '@/cards/domain/entities/card';
 import { AuthenticationMiddleware } from '@/login/infrastructure/middlewares/authentication-middleware';
+import { logger } from '@/config/logger';
 
 @injectable()
 @JsonController()
@@ -20,6 +21,8 @@ export class UpdateCardController {
 
   private onSuccess(res: Response): (props: unknown) => void {
     return (props: unknown) => {
+      const card = props as Card;
+      logger(`Card ${card.id} - ${card.titulo} - Atualizar`);
       res.status(StatusCodes.OK).json(props);
     };
   }
