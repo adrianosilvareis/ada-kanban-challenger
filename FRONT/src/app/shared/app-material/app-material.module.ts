@@ -7,7 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button'
 import {MatDividerModule} from '@angular/material/divider';
-
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [],
@@ -21,7 +21,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatFormFieldModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule
   ]
 })
 export class AppMaterialModule { }

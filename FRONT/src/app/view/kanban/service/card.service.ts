@@ -28,7 +28,13 @@ export class CardService {
   }
 
   saveCard(card:Card): Observable<Card> {
-    return this.http.put<Card>(`${this.URL}/${card.id}`, card);
+    const sanitize = {
+      id: card.id,
+      titulo: card.titulo,
+      conteudo: card.conteudo,
+      lista: card.lista
+    }
+    return this.http.put<Card>(`${this.URL}/${card.id}`, sanitize);
   }
 
   delete(id: string):Observable<Card> {

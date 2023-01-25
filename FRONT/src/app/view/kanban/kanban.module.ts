@@ -9,6 +9,7 @@ import { CardEditComponent } from './component/card-edit/card-edit.component';
 import { ListPipe } from './component/board/pipe/list.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardNewComponent } from './component/card-new/card-new.component';
+import { KanbanRoutingModule } from './kanban-routing.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CardNewComponent } from './component/card-new/card-new.component';
     CommonModule,
     AppMaterialModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    KanbanRoutingModule
   ],
   exports: [
     BoardComponent

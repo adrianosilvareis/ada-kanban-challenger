@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { AppMaterialModule } from './app-material/app-material.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { AppMaterialModule } from './app-material/app-material.module';
   ],
   imports: [
     CommonModule,
-    AppMaterialModule
+    AppMaterialModule,
+    RouterModule
   ],
   exports: [
     ToolbarComponent
