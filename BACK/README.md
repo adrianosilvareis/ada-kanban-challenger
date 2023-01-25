@@ -7,7 +7,7 @@ this is a `monorepo` project divided between `libs` and `app` modules inside the
 
 ## app
 
-base url http://localhost:3000
+base url http://localhost:5000
 
 ### CARD
 

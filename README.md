@@ -1,3 +1,39 @@
+# Configuração incial
+
+O arquivo README da pasta BACK e FRONT possui todas as instruções necessárias para configurar a aplicação.
+
+
+# Instruções rápidas
+
+## [BACK](./BACK/README.md)
+
+`make install` para instalar as dependências
+
+duplicar o arquivo `.env.sample` com o nome `.env`
+
+<b>A configuração de login, senha e JWT secret estão no .env.sample</b>
+
+`make migrate` para gerar as tabelas no banco de dados
+
+`make build_all` para rodas as libs do projeto
+
+`make down` para derrubar os containers
+
+`make up` para subir os container e rodar a aplicação
+
+## [FRONT](./FRONT/README.md)
+
+```cmd
+  npm install  // para adicionar baixar as dependências 
+  npm start    // para rodar a aplicação
+```
+
+# extra
+
+possuo um canal no youtube onde ensinava programação a alguns.
+
+https://www.youtube.com/@AdrianoReisProgramador
+
 # Desafio Técnico - Fullstack
 
 O propósito desse desafio é a criação de uma API que fará a persistência de dados e o frontend de um quadro de kanban. 
